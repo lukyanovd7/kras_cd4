@@ -139,7 +139,7 @@ plot_batch_fr <- function(seurat_obj, cluster_column, batch_column, palette, nor
 
 #-----------------------------------------------------------------PATHS------------------------------------------------------
 
-figures_folder <- '/projects/sle_jul_23_gabibov/luad/aucell/figures/'
+figures_folder <- '/path_to_folder/figures/'
 
 #-----------------------------------------------------------------COLORS------------------------------------------------------
 
@@ -150,7 +150,7 @@ col_vector = unlist(mapply(brewer.pal, qual_col_pals$maxcolors,
 
 #-----------------------------------------------------------------READ DATA------------------------------------------------------
 
-integrated <- readRDS('/projects/sle_jul_23_gabibov/luad/annotation_big/rds/luad_rpca_annotated.rds')
+integrated <- readRDS('/path_to_folder/luad_rpca_annotated.rds')
 
 integrated@meta.data <- integrated@meta.data %>%
   mutate(orig.ident_custom = case_when(
@@ -158,7 +158,7 @@ integrated@meta.data <- integrated@meta.data %>%
     TRUE ~ orig.ident
   ))
 
-th1_geneset <- read.csv('/projects/sle_jul_23_gabibov/luad/aucell/genesets/GSE14308_TH1_VS_NAIVE_CD4_TCELL_UP.v2024.1.Hs.tsv', sep = '\t') %>%
+th1_geneset <- read.csv('/path_to_folder/GSE14308_TH1_VS_NAIVE_CD4_TCELL_UP.v2024.1.Hs.tsv', sep = '\t') %>%
   filter(STANDARD_NAME == 'GENE_SYMBOLS') %>% pull('GSE14308_TH1_VS_NAIVE_CD4_TCELL_UP')
 
 th1_geneset <- unique(c("EOMES", "RUNX1", "RARA", "GZMA", "GZMH", "GZMB", "CCL4", "CCL5", "IFNG", "CXCR3", "BHLHE40", "GZMK", "EOMES", 
@@ -325,14 +325,14 @@ integrated@meta.data$CelltypeAnnotationThesis <- factor(integrated@meta.data$Cel
 
 
 
-gse162500 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse162500/integrated_cd4_t_cell_data_vdj.rds')
+gse162500 <- readRDS('/path_to_folder/integrated_cd4_t_cell_data_vdj.rds')
 gse162500@assays$RNA@layers$scale.data <- NULL
 
-abnormal_cells_to_exclude_gse243013 <- readLines('/projects/sle_jul_23_gabibov/luad/integration_big/abnormal_cell_to_exclude_gse243013.txt')
+abnormal_cells_to_exclude_gse243013 <- readLines('/path_to_folder/abnormal_cell_to_exclude_gse243013.txt')
 
 cells_to_include <- setdiff(Cells(gse243013), abnormal_cells_to_exclude_gse243013)
 
-gse243013 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse243013/integrated_cd4_t_cell_data_vdj.rds')
+gse243013 <- readRDS('/path_to_folder/integrated_cd4_t_cell_data_vdj.rds')
 #gse243013@assays$RNA@layers$scale.data <- NULL
 
 gse243013 <- subset(gse243013, cells = cells_to_include)
