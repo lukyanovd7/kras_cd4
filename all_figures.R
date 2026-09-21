@@ -1,9 +1,4 @@
-### This is the reproduction of Shakir code for generating Figures in pdf format
-
-
-### /projects/sle_jul_23_gabibov/luad/aucell Annotation
-### /projects/sle_jul_23_gabibov/luad/thesis_skoltech/figures.R 
-### /projects/sle_jul_23_gabibov/luad/annotation_big/scripts/annotation_05Jun2025_thirdIter.R   - CelltypeAnnotation real
+### Generating Figures
 
 
 # Figure 1B and 1C UMAP and batch distribution--------------------------------------------------------
@@ -28,15 +23,15 @@ library(cowplot)
 library(mltest)
 library(pheatmap)
 
-source('/home/dlukyanov/All_R_projects/projects/scRNA_seq/our/CD4_projection/luad_figures_tables/colors_fixed.R')
-source('/projects/sle_jul_23_gabibov/luad/helpers/functions.R')
+source('/path_to_folder/colors.R')
+source('/path_to_folder/functions.R')
 
-figures_folder <- "/home/dlukyanov/All_R_projects/projects/scRNA_seq/our/CD4_projection/figures/nslc_kras/colors_fixed"
-tables_folder <- "/home/dlukyanov/All_R_projects/projects/scRNA_seq/our/CD4_projection/figures/nslc_kras"
+figures_folder <- "/path_to_folder/"
+tables_folder <- "/path_to_folder/"
 
 working_folder <- 'rpca'
 
-integrated <- readRDS('/projects/sle_jul_23_gabibov/luad/annotation_big/rds/luad_rpca_annotated_21Jun25.rds')
+integrated <- readRDS('/path_to_folder/integrated.rds')
 
 integrated_backup <- integrated
 
@@ -342,7 +337,7 @@ library(mltest)
 library(ggpubr)
 library(purrr)
 
-base_path <- "/projects/sle_jul_23_gabibov/luad/integration_big_thirdIter"
+base_path <- "/path_to_folder/integration_big_thirdIter"
 
 methods <- c("rpca", "cca", "jpca", "harmony")
 
