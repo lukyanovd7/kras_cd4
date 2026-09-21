@@ -9,17 +9,17 @@ print('*************************************************************************
 
 #------------------------------------------------------------------------READ NEW DATA---------------------------------------------------------------------------------------------
 
-codeocean <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/codeocean/integrated_cd4_t_cell_data.rds')
+codeocean <- readRDS('/path_to_folder/integrated_rds/codeocean/integrated_cd4_t_cell_data.rds')
 
-gse162500 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse162500/integrated_cd4_t_cell_data_vdj.rds')
+gse162500 <- readRDS('/path_to_folder/integrated_rds/gse162500/integrated_cd4_t_cell_data_vdj.rds')
 
-gse171145 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse171145/integrated_cd4_t_cell_data.rds')
+gse171145 <- readRDS('/path_to_folder/integrated_rds/gse171145/integrated_cd4_t_cell_data.rds')
 
-gse176021 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse176021/integrated_cd4_t_cell_data_vdj.rds')
+gse176021 <- readRDS('/path_to_folder/integrated_rds/gse176021/integrated_cd4_t_cell_data_vdj.rds')
 
-gse179994 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse179994/integrated_cd4_t_cell_data_vdj.rds')
+gse179994 <- readRDS('/path_to_folder/integrated_rds/gse179994/integrated_cd4_t_cell_data_vdj.rds')
 
-gse243013 <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/gse243013/integrated_cd4_t_cell_data_vdj.rds')
+gse243013 <- readRDS('/path_to_folder/integrated_rds/gse243013/integrated_cd4_t_cell_data_vdj.rds')
 
 #------------------------------------------------------------------------MERGE NEW DATASETS--------------------------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ data_new <- merge(x = codeocean, y = c(gse162500, gse171145, gse176021, gse17999
 
 #------------------------------------------------------------------------READ OLD DATA-------------------------------------------------------------------------------------------
 
-data_old <- readRDS('/projects/sle_jul_23_gabibov/luad/integrated_rds/integrated_old.rds')
+data_old <- readRDS('/path_to_folder/integrated_rds/integrated_old.rds')
 
 DefaultAssay(object = data_old) <- 'RNA'
 
@@ -59,7 +59,7 @@ length(unique(colnames(obj)))
 
 print('******************************************************************************************')
 
-folder_path <- '/projects/sle_jul_23_gabibov/luad/handle_bad_clusters/data/'
+folder_path <- '/path_to_folder/handle_bad_clusters/data/'
 
 barcode_files <- list.files(path = folder_path, pattern = "^barcodes_.*\\.csv$", full.names = TRUE)
 
@@ -195,7 +195,7 @@ print('*************************************************************************
 print('Saving the integrated object')
 print('******************************************************************************************')
 
-saveRDS(integrated, "/projects/sle_jul_23_gabibov/luad/integration_big_thirdIter/rpca/luad_rpca.rds")
+saveRDS(integrated, "/path_to_folder/integration_big_thirdIter/rpca/luad_rpca.rds")
 
 
 
