@@ -10,7 +10,6 @@ library(cowplot)
 library(miloR)
 library(SingleCellExperiment)
 
-setwd('/projects/sle_jul_23_gabibov/')
 
 #-----------------------------------------------------------------HELPERS---------------------------------------------------------
 
