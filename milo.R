@@ -20,10 +20,10 @@ source('luad/helpers/functions.R')
 
 print('Read data')
 
-figures_folder <- '/projects/sle_jul_23_gabibov/luad/milo/figures/'
-data_folder <- '/projects/sle_jul_23_gabibov/luad/milo/data/'
+figures_folder <- '/path_to_folder/milo/figures/'
+data_folder <- '/path_to_folder/milo/data/'
 
-integrated <- readRDS('/projects/sle_jul_23_gabibov/luad/annotation_big/rds/luad_rpca_annotated_21Jun25.rds')
+integrated <- readRDS('/path_to_folder/integrated.rds')
 
 #-----------------------------------------------------------------DELETE UNKNOWN AND ARTEFACT CELL TYPES------------------------------------------------------
 
